@@ -197,9 +197,9 @@
 </head>
 
 <body>
-<div class="Titulo">JUNTA CANTONAL DE PROTECCION DE DERECHOS</div>
+<div class="Titulo">JUNTA CANTONAL DE PROTECCION DE DERECHOS NIÑES Y ADOLECENCIA</div>
 <div class="login">
-    <h1>Ingreso al Sistema</h1>
+    <h1>LOGIN</h1>
     <form id="form1" name="form1" method="post">
         <input type="text" name="CI" id="CI" maxlength="10" minlength="10" placeholder="Cedula" required="required"/>
         <input type="password" name="password" id="password" placeholder="Contraseña" required="required"/>
