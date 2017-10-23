@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="BDD_JCPD@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="bdd_jcpd">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="bdd_dece"/>
+    <schema id="4" parent="1" name="bdd_test2"/>
+    <schema id="5" parent="1" name="bdd_test3"/>
+    <schema id="6" parent="1" name="bdd_uedece"/>
+    <schema id="7" parent="1" name="information_schema"/>
+    <schema id="8" parent="1" name="mysql"/>
+    <schema id="9" parent="1" name="performance_schema"/>
+    <schema id="10" parent="1" name="phpmyadmin"/>
+    <schema id="11" parent="1" name="test"/>
+    <schema id="12" parent="1" name="bd_registro"/>
+    <table id="13" parent="2" name="t_analisis"/>
+    <table id="14" parent="2" name="t_audiencia"/>
+    <table id="15" parent="2" name="t_audienciaprueba"/>
+    <table id="16" parent="2" name="t_auxafectado"/>
+    <table id="17" parent="2" name="t_auxcaso"/>
+    <table id="18" parent="2" name="t_auxdenunciado"/>
+    <table id="19" parent="2" name="t_auxdenunciante"/>
+    <table id="20" parent="2" name="t_avocatoria"/>
+    <table id="21" parent="2" name="t_casos"/>
+    <table id="22" parent="2" name="t_casousuario"/>
+    <table id="23" parent="2" name="t_catalogogeneral">
+      <Comment>InnoDB free: 10240 kB; (`ctp_id`) REFER `bdd_jcpd/t_catalogo</Comment>
+    </table>
+    <table id="24" parent="2" name="t_catalogotipos"/>
+    <table id="25" parent="2" name="t_datosafectado"/>
+    <table id="26" parent="2" name="t_denunciado"/>
+    <table id="27" parent="2" name="t_denunciante"/>
+    <table id="28" parent="2" name="t_medidasemergentes"/>
+    <table id="29" parent="2" name="t_resolucion"/>
+    <table id="30" parent="2" name="t_roles">
+      <Comment>InnoDB free: 10240 kB</Comment>
+    </table>
+    <table id="31" parent="2" name="t_usuarios"/>
+    <routine id="32" parent="2" name="SP_BUSCAR_USUARIO_BY_ID">
+      <RoutineKind>procedure</RoutineKind>
+    </routine>
+    <routine id="33" parent="2" name="SP_LIST_ROL">
+      <RoutineKind>procedure</RoutineKind>
+    </routine>
+    <routine id="34" parent="2" name="SP_LIST_USERS">
+      <RoutineKind>procedure</RoutineKind>
+    </routine>
+    <routine id="35" parent="2" name="SP_BUSCAR_BY_EMAIL_USER">
+      <RoutineKind>procedure</RoutineKind>
+    </routine>
+    <routine id="36" parent="2" name="SP_BUSCAR_CATALOGO">
+      <RoutineKind>procedure</RoutineKind>
+    </routine>
+    <routine id="37" parent="2" name="SP_BUSCAR_TIPOC">
+      <RoutineKind>procedure</RoutineKind>
+    </routine>
+    <routine id="38" parent="2" name="SP_INSERT_AUXCASO">
+      <RoutineKind>procedure</RoutineKind>
+    </routine>
+    <routine id="39" parent="2" name="SP_INSERT_CASO">
+      <RoutineKind>procedure</RoutineKind>
+    </routine>
+    <routine id="40" parent="2" name="SP_ULTIMO_INSERT">
+      <RoutineKind>procedure</RoutineKind>
+    </routine>
+    <routine id="41" parent="2" name="SP_ULTIMO">
+      <RoutineKind>procedure</RoutineKind>
+    </routine>
+    <routine id="42" parent="2" name="SP_INSERT_AFECTADO">
+      <RoutineKind>procedure</RoutineKind>
+    </routine>
+    <routine id="43" parent="2" name="SP_INSERT_DENUNCIANTE">
+      <RoutineKind>procedure</RoutineKind>
+    </routine>
+    <routine id="44" parent="2" name="SP_LISTA_CAMBIOC">
+      <RoutineKind>procedure</RoutineKind>
+    </routine>
+    <column id="45" parent="13" name="AN_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="46" parent="13" name="AN_TIPO">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="47" parent="13" name="AN_OBSERVACION">
+      <Position>3</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="48" parent="13" name="CASO_ID">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="49" parent="13" name="CASO_ID">
+      <ColNames>CASO_ID</ColNames>
+    </index>
+    <key id="50" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>AN_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="51" parent="13" name="t_analisis_fk">
+      <ColNames>CASO_ID</ColNames>
+      <RefSchemaName>bdd_jcpd</RefSchemaName>
+      <RefTableName>t_casos</RefTableName>
+      <RefColNames>CASO_ID</RefColNames>
+    </foreign-key>
+    <column id="52" parent="14" name="RAU_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="53" parent="14" name="RAU_FECHACONCILIACION">
+      <Position>2</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="54" parent="14" name="RAU_HORAAUDIENCIA">
+      <Position>3</Position>
+      <DataType>time|0</DataType>
+    </column>
+    <column id="55" parent="14" name="RAU_OBSERVACION">
+      <Position>4</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="56" parent="14" name="RAU_RESUMEN">
+      <Position>5</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="57" parent="14" name="RAU_CONCILIACION">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="58" parent="14" name="CASO_ID">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="59" parent="14" name="CASO_ID">
+      <ColNames>CASO_ID</ColNames>
+    </index>
+    <key id="60" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>RAU_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="61" parent="14" name="t_audiencia_fk">
+      <ColNames>CASO_ID</ColNames>
+      <RefSchemaName>bdd_jcpd</RefSchemaName>
+      <RefTableName>t_casos</RefTableName>
+      <RefColNames>CASO_ID</RefColNames>
+    </foreign-key>
+    <column id="62" parent="15" name="APR_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="63" parent="15" name="APR_FECHAUDIENCIAP">
+      <Position>2</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="64" parent="15" name="APR_HORAUDIENCIAP">
+      <Position>3</Position>
+      <DataType>time|0</DataType>
+    </column>
+    <column id="65" parent="15" name="APR_RESUMEN">
+      <Position>4</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="66" parent="15" name="APR_RESUMENRESOLUCION">
+      <Position>5</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="67" parent="15" name="RAU_ID">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="68" parent="15" name="RAU_ID">
+      <ColNames>RAU_ID</ColNames>
+    </index>
+    <key id="69" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>APR_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="70" parent="15" name="t_audienciaprueba_fk">
+      <ColNames>RAU_ID</ColNames>
+      <RefSchemaName>bdd_jcpd</RefSchemaName>
+      <RefTableName>t_audiencia</RefTableName>
+      <RefColNames>CASO_ID</RefColNames>
+    </foreign-key>
+    <column id="71" parent="16" name="afc_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="72" parent="16" name="daf_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="73" parent="16" name="ctg_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="74" parent="16" name="ctg_id">
+      <ColNames>ctg_id</ColNames>
+    </index>
+    <index id="75" parent="16" name="daf_id">
+      <ColNames>daf_id</ColNames>
+    </index>
+    <key id="76" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>afc_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="77" parent="16" name="t_auxafectado_fk1">
+      <ColNames>daf_id</ColNames>
+      <RefSchemaName>bdd_jcpd</RefSchemaName>
+      <RefTableName>t_datosafectado</RefTableName>
+      <RefColNames>DAF_ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="78" parent="16" name="t_auxafectado_fk">
+      <ColNames>ctg_id</ColNames>
+      <RefSchemaName>bdd_jcpd</RefSchemaName>
+      <RefTableName>t_catalogogeneral</RefTableName>
+      <RefColNames>ctg_id</RefColNames>
+    </foreign-key>
+    <column id="79" parent="17" name="axct_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="80" parent="17" name="caso_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="81" parent="17" name="ctg_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="82" parent="17" name="caso_id">
+      <ColNames>caso_id</ColNames>
+    </index>
+    <index id="83" parent="17" name="ctg_id">
+      <ColNames>ctg_id</ColNames>
+    </index>
+    <key id="84" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>axct_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="85" parent="17" name="t_auxcaso_fk1">
+      <ColNames>caso_id</ColNames>
+      <RefSchemaName>bdd_jcpd</RefSchemaName>
+      <RefTableName>t_casos</RefTableName>
+      <RefColNames>CASO_ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="86" parent="17" name="t_auxcaso_fk">
+      <ColNames>ctg_id</ColNames>
+      <RefSchemaName>bdd_jcpd</RefSchemaName>
+      <RefTableName>t_catalogogeneral</RefTableName>
+      <RefColNames>ctg_id</RefColNames>
+    </foreign-key>
+    <column id="87" parent="18" name="adag_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="88" parent="18" name="dag_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="89" parent="18" name="ctg_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="90" parent="18" name="ctg_id">
+      <ColNames>ctg_id</ColNames>
+    </index>
+    <index id="91" parent="18" name="dag_id">
+      <ColNames>dag_id</ColNames>
+    </index>
+    <key id="92" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>adag_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="93" parent="18" name="t_auxdenunciado_fk1">
+      <ColNames>dag_id</ColNames>
+      <RefSchemaName>bdd_jcpd</RefSchemaName>
+      <RefTableName>t_denunciado</RefTableName>
+      <RefColNames>DAG_ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="94" parent="18" name="t_auxdenunciado_fk">
+      <ColNames>ctg_id</ColNames>
+      <RefSchemaName>bdd_jcpd</RefSchemaName>
+      <RefTableName>t_catalogogeneral</RefTableName>
+      <RefColNames>ctg_id</RefColNames>
+    </foreign-key>
+    <column id="95" parent="19" name="addn_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="96" parent="19" name="dden_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="97" parent="19" name="ctg_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="98" parent="19" name="ctg_id">
+      <ColNames>ctg_id</ColNames>
+    </index>
+    <index id="99" parent="19" name="dden_id">
+      <ColNames>dden_id</ColNames>
+    </index>
+    <key id="100" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>addn_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="101" parent="19" name="t_auxdenunciante_fk1">
+      <ColNames>dden_id</ColNames>
+      <RefSchemaName>bdd_jcpd</RefSchemaName>
+      <RefTableName>t_denunciante</RefTableName>
+      <RefColNames>DDEN_ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="102" parent="19" name="t_auxdenunciante_fk">
+      <ColNames>ctg_id</ColNames>
+      <RefSchemaName>bdd_jcpd</RefSchemaName>
+      <RefTableName>t_catalogogeneral</RefTableName>
+      <RefColNames>ctp_id</RefColNames>
+    </foreign-key>
+    <column id="103" parent="20" name="AVO_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="104" parent="20" name="AVO_FECHACONCI">
+      <Position>2</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="105" parent="20" name="AVO_HORA">
+      <Position>3</Position>
+      <DataType>time|0</DataType>
+    </column>
+    <column id="106" parent="20" name="AVO_OBSERVACION">
+      <Position>4</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="107" parent="20" name="AN_ID">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="108" parent="20" name="CASO_ID">
+      <ColNames>AN_ID</ColNames>
+    </index>
+    <key id="109" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>AVO_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="110" parent="20" name="t_avocatoria_fk">
+      <ColNames>AN_ID</ColNames>
+      <RefSchemaName>bdd_jcpd</RefSchemaName>
+      <RefTableName>t_analisis</RefTableName>
+      <RefColNames>AN_ID</RefColNames>
+    </foreign-key>
+    <column id="111" parent="21" name="CASO_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="112" parent="21" name="CASO_NUMCASO">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="113" parent="21" name="CASO_MOTIVO">
+      <Position>3</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="114" parent="21" name="CASO_OBSERVACION">
+      <Position>4</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="115" parent="21" name="CASO_ESTADO">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="116" parent="21" name="CASO_FECHAREG">
+      <Position>6</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="117" parent="21" name="CASO_FECHINGRESO">
+      <Position>7</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <key id="118" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CASO_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="119" parent="22" name="caus_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="120" parent="22" name="usu_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="121" parent="22" name="caso_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="122" parent="22" name="caso_id">
+      <ColNames>caso_id</ColNames>
+    </index>
+    <index id="123" parent="22" name="usu_id">
+      <ColNames>usu_id</ColNames>
+    </index>
+    <key id="124" parent="22" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>caus_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="125" parent="22" name="t_casousuario_fk1">
+      <ColNames>usu_id</ColNames>
+      <RefSchemaName>bdd_jcpd</RefSchemaName>
+      <RefTableName>t_usuarios</RefTableName>
+      <RefColNames>USU_ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="126" parent="22" name="t_casousuario_fk">
+      <ColNames>caso_id</ColNames>
+      <RefSchemaName>bdd_jcpd</RefSchemaName>
+      <RefTableName>t_casos</RefTableName>
+      <RefColNames>CASO_ID</RefColNames>
+    </foreign-key>
+    <column id="127" parent="23" name="ctg_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="128" parent="23" name="ctg_descripcion">
+      <Position>2</Position>
+      <DataType>varchar(150)|0</DataType>
+    </column>
+    <column id="129" parent="23" name="ctp_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="130" parent="23" name="ctp_id">
+      <ColNames>ctp_id</ColNames>
+    </index>
+    <key id="131" parent="23" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ctg_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="132" parent="23" name="t_catalogogeneral_fk">
+      <ColNames>ctp_id</ColNames>
+      <RefSchemaName>bdd_jcpd</RefSchemaName>
+      <RefTableName>t_catalogotipos</RefTableName>
+      <RefColNames>ctp_id</RefColNames>
+    </foreign-key>
+    <column id="133" parent="24" name="ctp_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="134" parent="24" name="ctp_tipo">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <key id="135" parent="24" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ctp_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="136" parent="25" name="DAF_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="137" parent="25" name="DAF_NOMBRE">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="138" parent="25" name="DAF_APELLIDO">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="139" parent="25" name="DAF_CI">
+      <Position>4</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="140" parent="25" name="DAF_FECHADENAC">
+      <Position>5</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="141" parent="25" name="DAF_EDAD">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="142" parent="25" name="DAF_DIRECCION">
+      <Position>7</Position>
+      <DataType>varchar(150)|0</DataType>
+    </column>
+    <column id="143" parent="25" name="DAF_SECTOR">
+      <Position>8</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="144" parent="25" name="DAF_TELEFONO">
+      <Position>9</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="145" parent="25" name="DAF_EMAIL">
+      <Position>10</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="146" parent="25" name="DAF_OBSERVACION">
+      <Position>11</Position>
+      <DataType>varchar(150)|0</DataType>
+    </column>
+    <column id="147" parent="25" name="CASO_ID">
+      <Position>12</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="148" parent="25" name="CASO_ID">
+      <ColNames>CASO_ID</ColNames>
+    </index>
+    <key id="149" parent="25" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>DAF_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="150" parent="25" name="t_datosafectado_fk">
+      <ColNames>CASO_ID</ColNames>
+      <RefSchemaName>bdd_jcpd</RefSchemaName>
+      <RefTableName>t_casos</RefTableName>
+      <RefColNames>CASO_ID</RefColNames>
+    </foreign-key>
+    <column id="151" parent="26" name="DAG_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="152" parent="26" name="DAG_NOMBRE">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="153" parent="26" name="DAG_APELLIDO">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="154" parent="26" name="DAG_CI">
+      <Position>4</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="155" parent="26" name="CGEN_ID">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="156" parent="26" name="DAG_RELACAFECTADO">
+      <Position>6</Position>
+      <DataType>varchar(150)|0</DataType>
+    </column>
+    <column id="157" parent="26" name="DAG_DIRECCION">
+      <Position>7</Position>
+      <DataType>varchar(150)|0</DataType>
+    </column>
+    <column id="158" parent="26" name="DAG_SECTOR">
+      <Position>8</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="159" parent="26" name="DAG_TELEFONO">
+      <Position>9</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="160" parent="26" name="DAG_EMAIL">
+      <Position>10</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="161" parent="26" name="DAG_OBSERVACION">
+      <Position>11</Position>
+      <DataType>varchar(150)|0</DataType>
+    </column>
+    <column id="162" parent="26" name="CTP_ID">
+      <Position>12</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="163" parent="26" name="CASO_ID">
+      <Position>13</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="164" parent="26" name="CGEN_ID">
+      <ColNames>CGEN_ID</ColNames>
+    </index>
+    <index id="165" parent="26" name="CTP_ID">
+      <ColNames>CTP_ID</ColNames>
+    </index>
+    <index id="166" parent="26" name="CASO_ID">
+      <ColNames>CASO_ID</ColNames>
+    </index>
+    <key id="167" parent="26" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>DAG_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="168" parent="26" name="t_denunciado_fk">
+      <ColNames>CASO_ID</ColNames>
+      <RefSchemaName>bdd_jcpd</RefSchemaName>
+      <RefTableName>t_casos</RefTableName>
+      <RefColNames>CASO_ID</RefColNames>
+    </foreign-key>
+    <column id="169" parent="27" name="DDEN_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="170" parent="27" name="DDEN_NOMBRE">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="171" parent="27" name="DDEN_APELLIDOS">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="172" parent="27" name="DDEN_CI">
+      <Position>4</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="173" parent="27" name="DDEN_FECHANAC">
+      <Position>5</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="174" parent="27" name="DDEN_EDAD">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="175" parent="27" name="DDEN_RELACAFECTADO">
+      <Position>7</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="176" parent="27" name="DDEN_DIRECCION">
+      <Position>8</Position>
+      <DataType>varchar(150)|0</DataType>
+    </column>
+    <column id="177" parent="27" name="DDEN_SECTOR">
+      <Position>9</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="178" parent="27" name="DDEN_TELEFONO">
+      <Position>10</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="179" parent="27" name="DDEN_EMAIL">
+      <Position>11</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="180" parent="27" name="DDEN_OBSERVACION">
+      <Position>12</Position>
+      <DataType>varchar(150)|0</DataType>
+    </column>
+    <column id="181" parent="27" name="CASO_ID">
+      <Position>13</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="182" parent="27" name="CASO_ID">
+      <ColNames>CASO_ID</ColNames>
+    </index>
+    <key id="183" parent="27" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>DDEN_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="184" parent="27" name="t_denunciante_fk">
+      <ColNames>CASO_ID</ColNames>
+      <RefSchemaName>bdd_jcpd</RefSchemaName>
+      <RefTableName>t_casos</RefTableName>
+      <RefColNames>CASO_ID</RefColNames>
+    </foreign-key>
+    <column id="185" parent="28" name="ME_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="186" parent="28" name="ME_FECHAPLICACION">
+      <Position>2</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="187" parent="28" name="ME_FECHINICIOMEDIDA">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="188" parent="28" name="ME_FECHFINALMEDIDA">
+      <Position>4</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="189" parent="28" name="ME_RESPONSABLE">
+      <Position>5</Position>
+      <DataType>varchar(150)|0</DataType>
+    </column>
+    <column id="190" parent="28" name="AVO_ID">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="191" parent="28" name="AVO_ID">
+      <ColNames>AVO_ID</ColNames>
+    </index>
+    <key id="192" parent="28" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ME_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="193" parent="28" name="t_medidasemergentes_fk">
+      <ColNames>AVO_ID</ColNames>
+      <RefSchemaName>bdd_jcpd</RefSchemaName>
+      <RefTableName>t_avocatoria</RefTableName>
+      <RefColNames>AVO_ID</RefColNames>
+    </foreign-key>
+    <column id="194" parent="29" name="RES_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="195" parent="29" name="RES__RESUMENRESOLUCION">
+      <Position>2</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="196" parent="29" name="RES_FECHINICIOMEDIDA">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="197" parent="29" name="RES_FECHFINALMEDIDA">
+      <Position>4</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="198" parent="29" name="RES_RESPONSABLE">
+      <Position>5</Position>
+      <DataType>varchar(150)|0</DataType>
+    </column>
+    <column id="199" parent="29" name="RES_ESTADO">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="200" parent="29" name="RAU_ID">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="201" parent="29" name="RAU_ID">
+      <ColNames>RAU_ID</ColNames>
+    </index>
+    <key id="202" parent="29" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>RES_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="203" parent="29" name="t_resolucion_fk">
+      <ColNames>RAU_ID</ColNames>
+      <RefSchemaName>bdd_jcpd</RefSchemaName>
+      <RefTableName>t_audiencia</RefTableName>
+      <RefColNames>RAU_ID</RefColNames>
+    </foreign-key>
+    <column id="204" parent="30" name="ROL_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="205" parent="30" name="ROL_TIPO">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <key id="206" parent="30" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ROL_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="207" parent="31" name="USU_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="208" parent="31" name="USU_NOMBRE">
+      <Position>2</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="209" parent="31" name="USU_APELLIDO">
+      <Position>3</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="210" parent="31" name="USU_CEDULA">
+      <Position>4</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="211" parent="31" name="USU_EMAIL">
+      <Position>5</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="212" parent="31" name="USU_PASWORD">
+      <Position>6</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="213" parent="31" name="USU_ESTADO">
+      <Position>7</Position>
+      <DataType>tinyint(4)|0</DataType>
+    </column>
+    <column id="214" parent="31" name="rol_id">
+      <Position>8</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="215" parent="31" name="USU_CCONTRASENIA">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="216" parent="31" name="rol_id">
+      <ColNames>rol_id</ColNames>
+    </index>
+    <key id="217" parent="31" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>USU_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="218" parent="31" name="t_usuarios_fk">
+      <ColNames>rol_id</ColNames>
+      <RefSchemaName>bdd_jcpd</RefSchemaName>
+      <RefTableName>t_roles</RefTableName>
+      <RefColNames>ROL_ID</RefColNames>
+    </foreign-key>
+    <argument id="219" parent="32" name="ID_USER">
+      <DataType>int(11)|0</DataType>
+    </argument>
+    <argument id="220" parent="35" name="USER">
+      <DataType>varchar(10)|0</DataType>
+    </argument>
+    <argument id="221" parent="35" name="EMAIL">
+      <DataType>varchar(100)|0</DataType>
+    </argument>
+    <argument id="222" parent="36" name="TIPO">
+      <DataType>varchar(100)|0</DataType>
+    </argument>
+    <argument id="223" parent="38" name="CatalogoID">
+      <DataType>int(11)|0</DataType>
+    </argument>
+    <argument id="224" parent="38" name="CasoID">
+      <DataType>int(11)|0</DataType>
+    </argument>
+    <argument id="225" parent="39" name="Ncaso">
+      <DataType>varchar(30)|0</DataType>
+    </argument>
+    <argument id="226" parent="39" name="Motivo">
+      <DataType>varchar(200)|0</DataType>
+    </argument>
+    <argument id="227" parent="39" name="Observacion">
+      <DataType>varchar(200)|0</DataType>
+    </argument>
+    <argument id="228" parent="41" name="casoID">
+      <DataType>int(11)|0</DataType>
+    </argument>
+    <argument id="229" parent="42" name="Nombre">
+      <DataType>varchar(30)|0</DataType>
+    </argument>
+    <argument id="230" parent="42" name="Apellido">
+      <DataType>varchar(50)|0</DataType>
+    </argument>
+    <argument id="231" parent="42" name="CI">
+      <DataType>varchar(10)|0</DataType>
+    </argument>
+    <argument id="232" parent="42" name="FechaNa">
+      <DataType>date|0</DataType>
+    </argument>
+    <argument id="233" parent="42" name="edad">
+      <DataType>int(11)|0</DataType>
+    </argument>
+    <argument id="234" parent="42" name="direccion">
+      <DataType>varchar(150)|0</DataType>
+    </argument>
+    <argument id="235" parent="42" name="sector">
+      <DataType>varchar(50)|0</DataType>
+    </argument>
+    <argument id="236" parent="42" name="telefono">
+      <DataType>varchar(10)|0</DataType>
+    </argument>
+    <argument id="237" parent="42" name="email">
+      <DataType>varchar(20)|0</DataType>
+    </argument>
+    <argument id="238" parent="42" name="observacion">
+      <DataType>varchar(150)|0</DataType>
+    </argument>
+    <argument id="239" parent="42" name="casoID">
+      <DataType>int(11)|0</DataType>
+    </argument>
+    <argument id="240" parent="43" name="Nombre">
+      <DataType>varchar(30)|0</DataType>
+    </argument>
+    <argument id="241" parent="43" name="Apellido">
+      <DataType>varchar(50)|0</DataType>
+    </argument>
+    <argument id="242" parent="43" name="CI">
+      <DataType>varchar(10)|0</DataType>
+    </argument>
+    <argument id="243" parent="43" name="FechaNa">
+      <DataType>date|0</DataType>
+    </argument>
+    <argument id="244" parent="43" name="edad">
+      <DataType>int(11)|0</DataType>
+    </argument>
+    <argument id="245" parent="43" name="direccion">
+      <DataType>varchar(150)|0</DataType>
+    </argument>
+    <argument id="246" parent="43" name="sector">
+      <DataType>varchar(50)|0</DataType>
+    </argument>
+    <argument id="247" parent="43" name="telefono">
+      <DataType>varchar(10)|0</DataType>
+    </argument>
+    <argument id="248" parent="43" name="email">
+      <DataType>varchar(20)|0</DataType>
+    </argument>
+    <argument id="249" parent="43" name="observacion">
+      <DataType>varchar(150)|0</DataType>
+    </argument>
+    <argument id="250" parent="43" name="casoID">
+      <DataType>int(11)|0</DataType>
+    </argument>
+    <argument id="251" parent="43" name="relacion">
+      <DataType>varchar(200)|0</DataType>
+    </argument>
+  </database-model>
+</dataSource>
